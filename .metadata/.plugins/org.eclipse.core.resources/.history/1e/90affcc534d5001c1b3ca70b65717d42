@@ -1,0 +1,21 @@
+import entidades.Pessoa;
+
+public class Poo {
+
+	public static void main(String[] args) {
+		Pessoa obj = new Pessoa();
+		/*
+		obj.nome = "Maria";
+		obj.email = "maria@gmail.com";
+		
+		Pessoa obj2 = new Pessoa();
+		obj2.nome = "Joaninha";
+		obj2.email = "joaninha@gmail.com";*/
+		
+		obj.setNome("Maria");
+		obj.setEmail("maria@gmail.com");
+	}
+
+}
+
+//encapsulamento -> proteger um recurso: atributo, método

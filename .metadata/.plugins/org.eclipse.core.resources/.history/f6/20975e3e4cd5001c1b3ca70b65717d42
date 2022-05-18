@@ -1,0 +1,13 @@
+package aula16;
+
+public class PessoaJuridica extends PessoaFisica {
+	private String nome;
+	private String contato;
+	private String cnpj;
+	@Override
+	public String toString() {
+		return "PessoaJuridica [nome=" + nome + ", contato=" + contato + ", cnpj=" + cnpj + "]";
+	} 
+	
+	
+}

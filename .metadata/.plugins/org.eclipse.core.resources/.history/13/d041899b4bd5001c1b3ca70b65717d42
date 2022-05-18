@@ -1,0 +1,18 @@
+package pessoa;
+
+import aula16.PessoaFisica;
+import aula16.PessoaJuridica;
+
+public class Pessoa {
+
+	private String nome;
+	private String contato;
+
+	public static void main(String[] args) {
+		Pessoa pessoa = new Pessoa();
+		pessoa.nome = "Ursula";
+		pessoa.contato = "1234-9098";
+		System.out.println(pessoa.toString());
+	}
+
+}

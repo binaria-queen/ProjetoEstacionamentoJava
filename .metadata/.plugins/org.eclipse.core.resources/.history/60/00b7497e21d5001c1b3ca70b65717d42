@@ -1,0 +1,5 @@
+package aula1;
+
+public class HashMap<T1, T2> {
+
+}

@@ -1,0 +1,16 @@
+package modificadorprotected;
+
+import modificadorprotected.Animal;
+
+public class Zoologico {
+
+	public static void main(String[] args) {
+		Animal a = new Animal();
+		a.especie = "felinos";
+		a.numeropatas = 4;
+		
+		System.out.println(a.toString());
+
+	}
+
+}

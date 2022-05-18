@@ -1,0 +1,17 @@
+package entidades;
+
+public class Pessoa {
+	private String nome;
+	private String email;
+}
+
+public void setNome(String nome) {
+	this.nome = nome;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+
+
+//modificador public -> fica visível em todas as classes que instaciarem a classe
+//modificador private -> fica visível somente dentro da classe

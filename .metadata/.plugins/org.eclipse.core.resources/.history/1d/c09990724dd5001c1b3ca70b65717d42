@@ -1,0 +1,22 @@
+package pessoa;
+
+import aula16.PessoaFisica;
+import aula16.PessoaJuridica;
+
+public class Pessoa {
+
+	public static void main(String[] args) {
+		PessoaFisica pessoa1 = new PessoaFisica();
+		pessoa1.nome = "Ursula";
+		pessoa1.contato = "1234-9098";
+		pessoa1.cpf = "074.890.980-23";
+		System.out.println(pessoa1.toString());
+		
+		PessoaJuridica pessoa2 = new PessoaJuridica();
+		pessoa2.nome = "Ursula";
+		pessoa2.contato = "1234-9098";
+		pessoa2.setCnpj = ("33.008.987/0001-90");
+		System.out.println(pessoa2.toString());
+	}
+
+}

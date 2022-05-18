@@ -1,0 +1,6 @@
+package aula16;
+
+public class PessoaJuridica extends PessoaFisica {
+	public String cnpj;
+	
+}

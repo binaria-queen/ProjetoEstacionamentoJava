@@ -1,0 +1,34 @@
+package tratamentoexcecao;
+
+import entidades.Contato;
+
+public class TratamentoExcecao {
+	
+	public static void main(String[] args) {
+		Contato ct = null;
+		int x = 10;
+		int y = 0;
+		try {
+			int[] numeros = {10, 20, 30};
+			System.out.println(numeros[3]);
+			
+			int z = x / y;
+			System.out.println(z);
+			
+			ct.setNome("Maria");
+			System.out.println(ct.getNome());
+		}
+		catch(ArithmeticException e) {
+			System.out.println("Não é possível dividir por zero");
+			System.out.println("tostring: " + e.toString());
+			System.out.println("Message: " + e.getMessage());
+		}
+		catch(ArrayIndexOutOfBoundsException e){
+			System.out.println("Posição inválida");
+			
+		}
+		catch(RuntimeException e) {
+			System.out.println("Exceção na execução do programa" + e.getMessage());
+		}
+	}
+}

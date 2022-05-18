@@ -1,0 +1,15 @@
+package aula16;
+
+import pessoa.Pessoa;
+
+public class PessoaFisica extends Pessoa {
+	private String nome;
+	private String contato;
+	private String cpf;
+	@Override
+	public String toString() {
+		return "PessoaFisica [nome=" + nome + ", contato=" + contato + ", cnpj=" + cpf + "]";
+	}
+	
+	
+}

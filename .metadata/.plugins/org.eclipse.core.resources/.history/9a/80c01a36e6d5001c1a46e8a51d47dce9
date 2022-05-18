@@ -1,0 +1,21 @@
+package tratamentoexcecao;
+
+public class TratamentoExcecao {
+	
+	public static void main(String[] args) {
+		int x = 10;
+		int y = 0;
+		try {
+			int z = x / y;
+			System.out.println(z);
+		}
+		/*catch(ArithmeticException e) {
+			System.out.println("Não é possível dividir por zero");
+			System.out.println("tostring: " + e.toString());
+			System.out.println("tostring: " + e.getMessage());
+		}*/
+		catch(Exception e) {
+			System.out.println("Exceção na execução do programa" + e.getMessage());
+		}
+	}
+}

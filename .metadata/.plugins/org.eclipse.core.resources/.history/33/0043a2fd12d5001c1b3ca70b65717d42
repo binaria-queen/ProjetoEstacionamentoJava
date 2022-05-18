@@ -1,0 +1,67 @@
+package aula1;
+
+import javax.swing.JOptionPane;
+
+public class Aula {
+	
+	public static void main(String[] args) {
+		//conceitos();
+		//System.out.println("no main novamente");
+		//variaveis();
+		//conversao();
+		desvioCondicional();
+	}
+	
+	
+	public static void desvioCondicional() {
+		int numero = 18;
+		System.out.println(numero <18);
+		if(numero < 18) {
+			System.out.println(numero + " é menor que 18");
+		}
+	}
+	
+	public static void conversao() {
+		byte idade;
+		idade = 47;
+		
+		idade = Byte.parseByte(JOptionPane.showInputDialog("Informe idade"));
+		JOptionPane.showMessageDialog(null, "sua idade é: " + idade + " anos");
+		
+		float peso = Float.parseFloat(JOptionPane.showInputDialog("Informe peso"));
+		JOptionPane.showMessageDialog(null, "seu peso é: " + peso + " kg");
+		
+		double altura = Double.parseDouble(JOptionPane.showInputDialog("Informe altura"));
+		JOptionPane.showMessageDialog(null, "sua altura é: " + altura + " cm");
+
+		float nota = 9.8f;
+		double notad = 9.8;
+		
+		String notaString = String.valueOf(nota); 
+		System.out.println(notaString);
+	}
+	
+	public static void variaveis() {
+		//String nome = "Jaqueline";
+		//String sobreNome;
+		String nome;
+		String sobreNome;
+		nome = JOptionPane.showInputDialog("Informe nome");
+		
+		
+		sobreNome = "Gabriela";
+		String nomeCompleto = nome + " " + sobreNome;
+		
+		System.out.println(nomeCompleto);
+	}
+	public static void conceitos() {
+		Aula2 obj; 
+		obj = new Aula2();
+		obj.soma();
+		
+		
+		String nota = "10";
+		System.out.println("Aula de conceitos");
+	}
+
+}

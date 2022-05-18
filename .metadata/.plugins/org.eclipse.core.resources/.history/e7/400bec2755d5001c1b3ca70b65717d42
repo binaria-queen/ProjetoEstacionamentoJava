@@ -1,0 +1,15 @@
+package desafio;
+
+import pessoa.Pessoa;
+
+public class PessoaFisica{
+	public String nome;
+	public String contato;
+	public String cpf;
+	@Override
+	public String toString() {
+		return "PessoaFisica [nome=" + nome + ", contato=" + contato + ", cpf=" + cpf + "]";
+	}
+	
+	
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="entidades.Pessoa"/>
+    <fullyQualifiedTypeName name="entidades.Calculadora"/>
+    <fullyQualifiedTypeName name="heranca.Veiculo"/>
+    <fullyQualifiedTypeName name="heranca.Motocicleta"/>
+    <fullyQualifiedTypeName name="modificadorprotected.Gato"/>
+    <fullyQualifiedTypeName name="pessoa.Pessoa"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="exception.MinhaExcecao"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="entidades.Contato"/>
+    <fullyQualifiedTypeName name="dao.DaoContato"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="utilidades.Conexao"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="dao.DaoContatos"/>
+    <fullyQualifiedTypeName name="interfaces.IDAO"/>
+    <fullyQualifiedTypeName name="entidades.Contatos"/>
+    <fullyQualifiedTypeName name="utilidades.Conexoes"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="com.aulas.mvc.entidades.Contato"/>
+</qualifiedTypeNameHistroy>

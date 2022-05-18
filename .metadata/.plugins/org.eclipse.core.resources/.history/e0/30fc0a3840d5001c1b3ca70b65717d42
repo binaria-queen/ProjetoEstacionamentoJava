@@ -1,0 +1,36 @@
+package heranca;
+
+public class Motocicleta {
+	private int cilindradas;
+
+	public int getCilindradas() {
+		return cilindradas;
+	}
+
+	public void setCilindradas(int cilindradas) {
+		this.cilindradas = cilindradas;
+	}
+
+	@Override
+	public String toString() {
+		String msg = super.toString();
+		return msg + "Cilindradas: " + this.cilindradas;
+	}
+
+	public void setMarca(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setModelo(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPlaca(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}

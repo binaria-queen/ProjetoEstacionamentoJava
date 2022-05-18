@@ -1,0 +1,15 @@
+package com.aulas.mvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/")
+public class IndexController {
+	
+	public String irindex(Model model) {
+		model.addAttribute("nome", "Jaqueline Gabriela");
+		return "index";
+	}
+}

@@ -1,0 +1,16 @@
+package dao;
+
+public class DaoContato {
+	public boolean salvar(Contato ct) {
+		try {
+			//inicia a conexão com o banco de dados
+			//envia query para o banco
+			//finaliza conexão
+		}
+		catch(Exception e) {
+			//tratar o erro
+		}
+		
+		return true;
+	}
+}
