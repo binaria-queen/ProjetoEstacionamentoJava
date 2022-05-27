@@ -1,24 +1,58 @@
 package com.aulas.rest.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NaturalIdCache;
+
+@Entity(name = "Vagas")
+@Table(name = "vagas")
+@NaturalIdCache
+@Cache(
+    usage = CacheConcurrencyStrategy.READ_WRITE
+)
 public class Vagas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idvagas;
+	private int id;
+	
 	private String tipo;
 	private char status;
-
-	public int getIdvagas() {
-		return idvagas;
+	
+	@OneToMany(
+		        mappedBy = "vagas",
+		        cascade = CascadeType.ALL,
+		        orphanRemoval = true
+		    )
+	private List<Intermediaria> listaUsuarios = new ArrayList<>();
+	
+	public Vagas() {
+		
 	}
 
-	public void setIdvagas(int idvagas) {
-		this.idvagas = idvagas;
+	public Vagas(int id, String tipo, char status) {
+		this.id = id;
+		this.tipo = tipo;
+		this.status = status;
+	}
+
+	public int getIdvagas() {
+		return id;
+	}
+
+	public void setIdvagas(int id) {
+		this.id = id;
 	}
 
 	public String getTipo() {
@@ -36,16 +70,27 @@ public class Vagas {
 	public void setStatus(char status) {
 		this.status = status;
 	}
-
-	public Vagas() {
-
+	
+	public List<Intermediaria> getListaUsuarios() {
+		return listaUsuarios;
 	}
 
-	public Vagas(int idvagas, String tipo, char status) {
-
-		this.idvagas = idvagas;
-		this.tipo = tipo;
-		this.status = status;
+	public void setListaUsuarios(List<Intermediaria> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+	if (this == o)
+	return true;
+	if (o == null || getClass() != o.getClass())
+	return false;
+	Vagas vagas = (Vagas) o;
+	return Objects.equals(tipo, vagas.tipo);
+	}
+
+	@Override
+	public int hashCode() {
+	return Objects.hash(tipo);
+	}
 }

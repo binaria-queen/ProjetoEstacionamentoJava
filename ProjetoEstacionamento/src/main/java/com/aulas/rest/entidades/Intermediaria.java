@@ -11,14 +11,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
-@Entity(name = "Intermediária")
-@Table(name = "Intermediária")
+@Entity(name = "Intermediaria")
+@Table(name = "Intermediaria")
 public class Intermediaria {
+
 	@EmbeddedId
 	private IntermediariaId id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@MapsId("usuarioId")
+	@MapsId("usuariosId")
 	private Usuario usuario;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -27,6 +28,16 @@ public class Intermediaria {
 
 	private Date data;
 	private Time hora;
+
+	public Intermediaria() {
+
+	}
+
+	public Intermediaria(Usuario usuario, Vagas vagas) {
+		this.usuario = usuario;
+		this.vagas = vagas;
+		this.id = new IntermediariaId(usuario.getId(), vagas.getIdvagas());
+	}
 
 	public Date getData() {
 		return data;
@@ -68,17 +79,6 @@ public class Intermediaria {
 		this.vagas = vagas;
 	}
 
-	public Intermediaria() {
-
-	}
-
-	public Intermediaria(Usuario usuario, Vagas vagas) {
-
-		this.usuario = usuario;
-		this.vagas = vagas;
-		this.id = new IntermediariaId(usuario.getId(), vagas.getIdvagas());
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -95,5 +95,4 @@ public class Intermediaria {
 	public int hashCode() {
 		return Objects.hash(usuario, vagas);
 	}
-
 }

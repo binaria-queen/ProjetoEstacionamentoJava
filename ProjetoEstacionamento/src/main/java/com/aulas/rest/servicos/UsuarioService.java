@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.aulas.rest.dto.UsuarioDTO;
 import com.aulas.rest.entidades.Usuario;
 import com.aulas.rest.repositorios.UsuarioRepositorio;
+import com.aulas.rest.servicos.excecoes.RecursoNaoEncontrado;
 
 
 
@@ -30,9 +31,9 @@ public class UsuarioService {
 	
 	public UsuarioDTO pegarPorId (int idusuario) {
 		Optional<Usuario> obj = repo.findById(idusuario);
-		Usuario user = obj.get();
+		Usuario user = obj.orElseThrow(() -> new RecursoNaoEncontrado ("Usuário não encontrado."));
 		return new UsuarioDTO (user);
-		//Usuario user = obj.orElseThrow(() -> new RecursoNaoEncontrado("Usuário não encontrado."));
+		
 	}
 
 	public UsuarioDTO salvar(Usuario usuario) {
@@ -42,7 +43,7 @@ public class UsuarioService {
 	
 	public UsuarioDTO alterar(int idusuario, Usuario usuario) {
 		Optional<Usuario> obj = repo.findById(idusuario);
-		Usuario user = obj.get();
+		Usuario user = obj.orElseThrow(() -> new RecursoNaoEncontrado ("Usuário não encontrado."));
 		
 		user.setNome(usuario.getNome());
 		user.setEmail(usuario.getEmail());

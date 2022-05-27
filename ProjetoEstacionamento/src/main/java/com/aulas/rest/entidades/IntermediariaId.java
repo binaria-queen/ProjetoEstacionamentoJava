@@ -14,6 +14,15 @@ public class IntermediariaId implements Serializable {
 	@Column(name = "vagas_id")
 	private int vagasId;
 
+	public IntermediariaId() {
+
+	}
+
+	public IntermediariaId(int usuarioId, int vagasId) {
+		this.usuarioId = usuarioId;
+		this.vagasId = vagasId;
+	}
+
 	public int getUsuarioId() {
 		return usuarioId;
 	}
@@ -22,30 +31,21 @@ public class IntermediariaId implements Serializable {
 		return vagasId;
 	}
 
-	public IntermediariaId() {
-		
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		IntermediariaId that = (IntermediariaId) o;
+		return Objects.equals(usuarioId, that.usuarioId) && Objects.equals(vagasId, that.vagasId);
 	}
 
-	public IntermediariaId(int usuarioId, int vagasId) {
-		this.usuarioId = usuarioId;
-		this.vagasId = vagasId;
-	}
-	
 	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
- 
-        if (o == null || getClass() != o.getClass())
-            return false;
- 
-        IntermediariaId that = (IntermediariaId) o;
-        return Objects.equals(usuarioId, that.usuarioId) &&
-               Objects.equals(vagasId, that.vagasId);
-    }
- 
-    @Override
-    public int hashCode() {
-        return Objects.hash(usuarioId, vagasId);
-    }
-	
+	public int hashCode() {
+		return Objects.hash(usuarioId, vagasId);
+	}
+
 }

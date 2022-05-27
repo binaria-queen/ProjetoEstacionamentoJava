@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.aulas.rest.dto.UsuarioDTO;
 import com.aulas.rest.entidades.Usuario;
 import com.aulas.rest.servicos.UsuarioService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -34,6 +36,11 @@ public class UsuarioController {
 		return ResponseEntity.ok(service.pegarPorId(idusuario));
 	}
 
+	/*@PostMapping("/login")
+	public ResponseEntity<UsuarioDTO> salvarLogin(@RequestBody Usuario usuario) {
+		return ResponseEntity.ok(service.salvar(usuario));
+	}*/
+	
 	@PostMapping
 	public ResponseEntity<UsuarioDTO> salvar(@RequestBody Usuario usuario) {
 		return ResponseEntity.ok(service.salvar(usuario));
@@ -46,7 +53,13 @@ public class UsuarioController {
 
 	@DeleteMapping("/{idusuario}")
 	public ResponseEntity<UsuarioDTO> deletar(@PathVariable("idusuario") int idusuario) {
-		service.deletar(idusuario);
-		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		try {
+			service.deletar(idusuario);
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		} 
+		catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+
 	}
 }

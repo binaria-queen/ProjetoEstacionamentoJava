@@ -2,6 +2,7 @@ package com.aulas.rest.entidades;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 @Entity(name = "Usuario")
 @Table(name = "usuario")
@@ -20,8 +20,8 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String nome;
 	private String email;
+	private String nome;
 	private String senha;
 	private Date datanascimento;
 	private char gestante;
@@ -31,12 +31,20 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Intermediaria> lista = new ArrayList<>();
 
-	public String getNome() {
-		return nome;
+	public Usuario() {
+
 	}
 
-	public void setNome(String nome) {
+	public Usuario(int id, String email, String nome, String senha, Date datanascimento, char gestante, char pcd,
+			String perfil) {
+		this.id = id;
+		this.email = email;
 		this.nome = nome;
+		this.senha = senha;
+		this.datanascimento = datanascimento;
+		this.gestante = gestante;
+		this.pcd = pcd;
+		this.perfil = perfil;
 	}
 
 	public int getId() {
@@ -95,36 +103,27 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	public Usuario() {
-
+	public String getNome() {
+		return nome;
 	}
 
-	public Usuario(int id, String nome, String email, String senha, Date datanascimento, char gestante, char pcd,
-			String perfil) {
-
-		this.id = id;
+	public void setNome(String nome) {
 		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-		this.datanascimento = datanascimento;
-		this.gestante = gestante;
-		this.pcd = pcd;
-		this.perfil = perfil;
 	}
 
 	public void addVagas(Vagas vagas) {
 		Intermediaria intermediaria = new Intermediaria(this, vagas);
 		lista.add(intermediaria);
-		vagas.getlistaUsuarios().add(intermediaria);
+		vagas.getListaUsuarios().add(intermediaria);
 	}
 
-	public void removeTag(Vagas vagas) {
+	public void removeVaga(Vagas vagas) {
 		for (Iterator<Intermediaria> iterator = lista.iterator(); iterator.hasNext();) {
 			Intermediaria intermediaria = iterator.next();
 
 			if (intermediaria.getUsuario().equals(this) && intermediaria.getVagas().equals(vagas)) {
 				iterator.remove();
-				intermediaria.getVagas().getlistaUsuarios().remove(intermediaria);
+				intermediaria.getVagas().getListaUsuarios().remove(intermediaria);
 				intermediaria.setUsuario(null);
 				intermediaria.setVagas(null);
 			}
@@ -150,5 +149,4 @@ public class Usuario {
 	public int hashCode() {
 		return Objects.hash(nome, email, senha, datanascimento, gestante, pcd, perfil);
 	}
-
 }
