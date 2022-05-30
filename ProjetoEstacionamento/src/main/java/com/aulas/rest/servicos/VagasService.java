@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aulas.rest.dto.UsuarioDTO;
+import com.aulas.rest.entidades.Usuario;
 import com.aulas.rest.entidades.Vagas;
 import com.aulas.rest.repositorios.VagasRepositorio;
 
@@ -27,10 +29,15 @@ public class VagasService {
 
 	}
 
-	public Vagas salvar(Vagas vagas) {
-		Vagas vaga = repo.save(vagas);
-		return vaga;
-	}
+	/*public Vagas salvar(int quantidade) {
+		String tipo = "C";
+		for(int i=0; i<quantidade; i++) {
+			
+			Vagas vagas = repo.save(new Vagas(tipo,false));
+		}		
+		
+		return vagas;
+	}*/
 
 	public Vagas alterar(int idvagas, Vagas vagas) {
 		Optional<Vagas> obj = repo.findById(idvagas);
@@ -38,7 +45,7 @@ public class VagasService {
 
 		vaga.setIdvagas(vagas.getIdvagas());
 		vaga.setTipo(vagas.getTipo());
-		vaga.setStatus(vagas.getStatus());
+		vaga.setOcupada(vagas.getOcupada());
 		vaga = repo.save(vaga);
 		return vaga;
 

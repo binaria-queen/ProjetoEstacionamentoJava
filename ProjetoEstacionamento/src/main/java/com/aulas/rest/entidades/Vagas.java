@@ -28,7 +28,7 @@ public class Vagas {
 	private int id;
 	
 	private String tipo;
-	private char status;
+	private boolean ocupada;
 	
 	@OneToMany(
 		        mappedBy = "vagas",
@@ -41,10 +41,10 @@ public class Vagas {
 		
 	}
 
-	public Vagas(int id, String tipo, char status) {
+	public Vagas(int id, String tipo, boolean ocupada) {
 		this.id = id;
 		this.tipo = tipo;
-		this.status = status;
+		this.ocupada = ocupada;
 	}
 
 	public int getIdvagas() {
@@ -63,12 +63,12 @@ public class Vagas {
 		this.tipo = tipo;
 	}
 
-	public char getStatus() {
-		return status;
+	public boolean getOcupada() {
+		return ocupada;
 	}
 
-	public void setStatus(char status) {
-		this.status = status;
+	public void setOcupada(boolean ocupada) {
+		this.ocupada = ocupada;
 	}
 	
 	public List<Intermediaria> getListaUsuarios() {

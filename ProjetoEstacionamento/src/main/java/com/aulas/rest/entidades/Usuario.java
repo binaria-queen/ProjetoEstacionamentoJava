@@ -1,17 +1,21 @@
 package com.aulas.rest.entidades;
 
 import java.sql.Date;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity(name = "Usuario")
@@ -27,6 +31,11 @@ public class Usuario {
 	private char gestante;
 	private char pcd;
 	private String perfil;
+	/*@Column(columnDefinition = "TIMESTAMP WHITHOUT TIME ZONE")
+	private Instant createdAt;
+	@Column(columnDefinition = "TIMESTAMP WHITHOUT TIME ZONE")
+	private Instant updateAt;*/
+	
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Intermediaria> lista = new ArrayList<>();
@@ -46,6 +55,8 @@ public class Usuario {
 		this.pcd = pcd;
 		this.perfil = perfil;
 	}
+	
+	
 
 	public int getId() {
 		return id;
@@ -149,4 +160,22 @@ public class Usuario {
 	public int hashCode() {
 		return Objects.hash(nome, email, senha, datanascimento, gestante, pcd, perfil);
 	}
+	/*
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public Instant getUpdateAt() {
+		return updateAt;
+	}
+
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	@PreUpdate 
+	public void preUpdate() {
+		updateAt = Instant.now();	
+	}*/
+	
 }

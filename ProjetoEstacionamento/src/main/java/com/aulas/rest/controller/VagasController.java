@@ -35,10 +35,10 @@ public class VagasController {
 		return ResponseEntity.ok(service.pegarPorId(idvagas));
 	}
 
-	@PostMapping
-	public ResponseEntity<Vagas> salvar(@RequestBody Vagas vagas) {
-		return ResponseEntity.ok(service.salvar(vagas));
-	}
+	/*@PostMapping("{quantidade}")
+	public ResponseEntity<Vagas> salvar(@PathVariable ("quantidade") int quantidade) {
+		return ResponseEntity.ok(service.salvar(quantidade));
+	}*/
 
 	@PutMapping("/{idvagas}")
 	public ResponseEntity<Vagas> alterar(@PathVariable("idvagas") int idvagas, @RequestBody Vagas vagas) {

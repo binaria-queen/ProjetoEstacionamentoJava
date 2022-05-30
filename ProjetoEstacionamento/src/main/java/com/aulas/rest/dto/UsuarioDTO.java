@@ -10,6 +10,31 @@ public class UsuarioDTO {
 	private Date datanascimento;
 	private char gestante;
 	private char pcd;
+	private int id;
+	private String perfil;
+	
+
+	public UsuarioDTO(int id, String perfil) {
+	
+		this.id = id;
+		this.perfil = perfil;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
 
 	public String getNome() {
 		return nome;
@@ -55,13 +80,15 @@ public class UsuarioDTO {
 
 	}
 
-	public UsuarioDTO(String nome, String email, Date datanascimento, char gestante, char pcd) {
+	public UsuarioDTO(String nome, String email, Date datanascimento, char gestante, char pcd, int id, String perfil) {
 
 		this.nome = nome;
 		this.email = email;
 		this.datanascimento = datanascimento;
 		this.gestante = gestante;
 		this.pcd = pcd;
+		this.id = id;
+		this.perfil = perfil;
 	}
 
 	public UsuarioDTO(Usuario usuario) {
@@ -71,7 +98,8 @@ public class UsuarioDTO {
 		this.datanascimento = usuario.getDatanascimento();
 		this.gestante = usuario.getGestante();
 		this.pcd = usuario.getPcd();
-	}
+		this.id = usuario.getId();
+		this.perfil = usuario.getPerfil();	}
 
 }
 
